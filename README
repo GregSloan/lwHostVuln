@@ -1,0 +1,22 @@
+# lwHostVuln
+
+This script returns vulnerabilities from Lacework for specified InstnaceId
+
+It will search all sub accounts to try to find the host unless a specific subccount is passed
+
+If vuln data is found, it's output in 2 files. One will list all vulnerable package/vuln combinations. The other will group everything by VulnId
+
+Optionally, a specific vuln ID can be passed. If it is, the script will look for tht vulnId in the output. If found, a 3rd file with the vuln details will be output
+
+## Setup
+
+This requires org admin access to a Lacework tenant. Follow the documentatoin here (https://docs.lacework.net/console/api-access-keys) to generate an admin API key and download the json
+
+## Usage
+
+python lwHostVuln.py -i {instance id} -c {path/to/creds.json}
+
+optional parameters:
+-v, --vulnid  will return specified vulnid info if found
+-s, --subaccount will only check this subaccount
+-o, --outputlocation specify location to output json files (default is script working directory)
